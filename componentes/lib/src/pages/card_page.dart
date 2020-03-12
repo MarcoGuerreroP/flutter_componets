@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+
 class CardPage extends StatelessWidget {
   
 
@@ -25,6 +26,8 @@ class CardPage extends StatelessWidget {
   Widget _cardTipo1(){
 
     return Card(
+      elevation: 10.0,
+      shape: RoundedRectangleBorder( borderRadius:BorderRadius.circular(20.0) ),
       child: Column(
         children: <Widget>[
           ListTile(
@@ -56,17 +59,66 @@ class CardPage extends StatelessWidget {
 
 
 
-    return Card(
+    final card = Container(
+      // clipBehavior: Clip.antiAlias,
       child: Column(
         children: <Widget>[
-          Image(
+
+
+          FadeInImage(
             image: NetworkImage('https://image.shutterstock.com/image-photo/autumn-view-lake-federa-dolomites-260nw-1505964326.jpg'),
+            placeholder: AssetImage('assets/original.gif'),
+            fadeInDuration: Duration(milliseconds: 200),
+            height: 300.0,
+            fit: BoxFit.cover,
+            fadeInCurve: Curves.bounceIn,
+            
+            
+
           ),
-          Text('no tengo idea de que poner')
+          // Image(
+          //   image: NetworkImage('https://image.shutterstock.com/image-photo/autumn-view-lake-federa-dolomites-260nw-1505964326.jpg'),
+          // ),
+          Container(
+            padding: EdgeInsets.all(10.0),
+            child: Text('no tengo idea de que poner')
+          ),
         ],
       ),
 
     );
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.0),
+        color: Colors.white,
+        // color: Colors.red
+        boxShadow: <BoxShadow> [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 10.0,
+            spreadRadius: 2.0,
+            offset: Offset(2.0, 10.0)
+
+          ),
+
+        ]
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child: card,
+
+      ),
+    );
+    
+    
+
+
+
+
+
+  
+
+
   }
 
 
